@@ -1,6 +1,5 @@
 package com.subakstudio.wola;
 
-import com.subakstudio.wifi.WifiMacOSX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +20,7 @@ public class WoLa extends Application {
 
     @Override
     public void start(Stage stage) {
-        System.out.println(new WifiMacOSX().updateSignals());
+//        System.out.println(new WifiMacOSX().updateSignals());
         Parent root = null;
         try {
             URL fxml = getClass().getResource("/com/subakstudio/wola/WoLa.fxml");
