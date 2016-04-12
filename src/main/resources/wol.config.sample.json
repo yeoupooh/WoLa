@@ -1,0 +1,21 @@
+{
+  "hosts": [
+    {
+      "type": "raw",
+      "name": "your-pc (raw WOL)",
+      "options": {
+        "ip": "192.168.1.2",
+        "mac": "f1:f2:f3:f4:f5:f6"
+      }
+    },
+    {
+      "type": "asus",
+      "name": "your-pc (via Asus Router)",
+      "options": {
+        "mac": "f1:f2:f3:f4:f5:f6",
+        "url": "http://asusrouter/",
+        "username": "username"
+      }
+    }
+  ]
+}
