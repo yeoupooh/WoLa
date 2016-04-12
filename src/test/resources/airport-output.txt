@@ -1,0 +1,7 @@
+                            SSID BSSID             RSSI CHANNEL HT CC SECURITY (auth/unicast/group)
+                       ollehWiFi 0e:0e:dc:42:61:d6 -70  1       Y  -- WPA(802.1x/TKIP,AES/TKIP) WPA2(802.1x/TKIP,AES/TKIP)
+                    KT_WLAN_421D 0a:0e:dc:42:61:d6 -70  1       Y  -- WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP)
+                      ollehWiFi  02:0e:dc:42:61:d6 -71  1       Y  -- NONE
+                      rollingpin 00:26:66:a4:8e:7a -76  1,+1    Y  -- WPA(PSK/AES/AES) WPA2(PSK/AES/AES)
+                     twosome9633 64:e5:99:38:48:a6 -53  9,+1    Y  -- WPA(PSK/AES/AES)
+                        T_JAMSIL 90:9f:33:8c:28:56 -83  9,+1    Y  -- WPA2(PSK/AES/AES)
