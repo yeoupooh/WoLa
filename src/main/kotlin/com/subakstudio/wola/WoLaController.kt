@@ -45,5 +45,7 @@ class WoLaController : Initializable {
         println("WoLaController: table=$table")
         //println("WoLaController: " + (filteredTablePane is FilteredTableController)
         println("WoLaController: child ctrl=$filteredTablePaneController")
+
+        filteredTablePaneController!!.addRow(WolRow("name", "type", "options", "action"))
     }
 }

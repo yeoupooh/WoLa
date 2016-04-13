@@ -2,11 +2,14 @@ package com.subakstudio.javafx.widget
 
 import com.subakstudio.wola.model.WolModel
 import com.subakstudio.wola.model.WolRow
+import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
+import javafx.scene.control.TableCell
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.cell.PropertyValueFactory
+import javafx.util.Callback
 import java.net.URL
 import java.util.*
 
@@ -52,11 +55,17 @@ class FilteredTableController : Initializable {
         colName!!.cellValueFactory = PropertyValueFactory<WolRow, String>("name")
         colType!!.cellValueFactory = PropertyValueFactory<WolRow, String>("type")
         colOptions!!.cellValueFactory = PropertyValueFactory<WolRow, String>("options")
-        colAction!!.cellValueFactory = PropertyValueFactory<WolRow, String>("action")
+        //        colAction!!.cellValueFactory = PropertyValueFactory<WolRow, String>("action")
+        // TODO
+        //        colAction!!.cellValueFactory = Callback <TableColumn<String, Boolean>, TableCell<String, Boolean>> { p -> ButtonCell() }
+    }
+
+    fun setItems(rows: ObservableList<WolRow>) {
+        table!!.items = rows
     }
 
     fun addRow(row: WolRow) {
-        //table.
+        table!!.items.add(row)
     }
 }
 
