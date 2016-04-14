@@ -1,6 +1,5 @@
 package com.subakstudio.javafx.widget
 
-import com.subakstudio.wola.model.WolModel
 import com.subakstudio.wola.model.WolRow
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
@@ -57,7 +56,8 @@ class FilteredTableController : Initializable {
         colOptions!!.cellValueFactory = PropertyValueFactory<WolRow, String>("options")
         //        colAction!!.cellValueFactory = PropertyValueFactory<WolRow, String>("action")
         // TODO
-        //        colAction!!.cellValueFactory = Callback <TableColumn<String, Boolean>, TableCell<String, Boolean>> { p -> ButtonCell() }
+        colAction!!.cellFactory = Callback <TableColumn<WolRow, String>, TableCell<WolRow, String>>() { column -> ButtonCell(column) }
+
     }
 
     fun setItems(rows: ObservableList<WolRow>) {
@@ -67,5 +67,10 @@ class FilteredTableController : Initializable {
     fun addRow(row: WolRow) {
         table!!.items.add(row)
     }
+
+
 }
+
+
+
 
