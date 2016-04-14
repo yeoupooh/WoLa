@@ -18,15 +18,15 @@ class ButtonCell(column: TableColumn<WolRow, String>) : TableCell<WolRow, String
     init {
         println("ButtonCell: init: column=$column tableRow=$tableRow")
         cellButton.onAction = EventHandler<ActionEvent> { event ->
-            println("ButtonCell: onAction: tableRow=${tableRow.index} ${cell()!!.name} $event")
+            println("ButtonCell: onAction: tableRow=${tableRow.index} ${cell()?.name} $event")
         }
     }
 
     override fun updateItem(item: String?, empty: Boolean) {
         super.updateItem(item, empty);
         if (!empty) {
-            println("ButtonCell: updateItem: ${cell()!!.action} item=$item empty=$empty")
-            cellButton.text = cell()!!.action
+            println("ButtonCell: updateItem: ${cell()?.action} item=$item empty=$empty")
+            cellButton.text = cell()?.action
             graphic = cellButton;
         }
     }

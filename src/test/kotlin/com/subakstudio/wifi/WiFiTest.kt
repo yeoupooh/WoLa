@@ -60,9 +60,9 @@ public class WiFiTest {
                         ssids.add(line)
 
                     }
-                if (line!!.contains("Signal")) {
-                    line = line!!.substring(30)
-                    signals.add(line)
+                if (line?.contains("Signal")!!) {
+                    line = line?.substring(30)
+                    signals.add(line!!)
                 }
 
                 if (signals.size == 7) {

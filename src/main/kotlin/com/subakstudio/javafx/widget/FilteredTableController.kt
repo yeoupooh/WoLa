@@ -51,21 +51,19 @@ class FilteredTableController : Initializable {
     private fun setupTable() {
         println("FilteredTableController: table=$table")
         println("FilteredTableController: colName=$colName")
-        colName!!.cellValueFactory = PropertyValueFactory<WolRow, String>("name")
-        colType!!.cellValueFactory = PropertyValueFactory<WolRow, String>("type")
-        colOptions!!.cellValueFactory = PropertyValueFactory<WolRow, String>("options")
-        //        colAction!!.cellValueFactory = PropertyValueFactory<WolRow, String>("action")
-        // TODO
-        colAction!!.cellFactory = Callback <TableColumn<WolRow, String>, TableCell<WolRow, String>>() { column -> ButtonCell(column) }
+        colName?.cellValueFactory = PropertyValueFactory<WolRow, String>("name")
+        colType?.cellValueFactory = PropertyValueFactory<WolRow, String>("type")
+        colOptions?.cellValueFactory = PropertyValueFactory<WolRow, String>("options")
+        colAction?.cellFactory = Callback <TableColumn<WolRow, String>, TableCell<WolRow, String>>() { column -> ButtonCell(column) }
 
     }
 
     fun setItems(rows: ObservableList<WolRow>) {
-        table!!.items = rows
+        table?.items = rows
     }
 
     fun addRow(row: WolRow) {
-        table!!.items.add(row)
+        table?.items?.add(row)
     }
 
 

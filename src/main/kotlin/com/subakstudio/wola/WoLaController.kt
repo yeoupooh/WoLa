@@ -39,14 +39,14 @@ class WoLaController : Initializable {
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         assert(filteredTablePane != null) { "fx:id=\"filteredTablePane\" was not injected: check your FXML file 'WoLa.fxml'." }
 
-        var table: TableView<WolRow>? = filteredTablePane!!.lookup("#table") as TableView<WolRow>
+        var table: TableView<*> = filteredTablePane?.lookup("#table") as TableView<*>
 
         println("WoLaController: pane=$filteredTablePane")
         println("WoLaController: table=$table")
         //println("WoLaController: " + (filteredTablePane is FilteredTableController)
         println("WoLaController: child ctrl=$filteredTablePaneController")
 
-        filteredTablePaneController!!.addRow(WolRow("name", "type", "options", "action"))
-        filteredTablePaneController!!.addRow(WolRow("name2", "type2", "options2", "action2"))
+        filteredTablePaneController?.addRow(WolRow("name", "type", "options", "action"))
+        filteredTablePaneController?.addRow(WolRow("name2", "type2", "options2", "action2"))
     }
 }

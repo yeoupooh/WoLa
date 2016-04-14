@@ -14,7 +14,7 @@ class RedirectIO {
             Thread(Runnable {
                 var sc = Scanner(src)
                 while (sc.hasNextLine()) {
-                    dest!!.println(sc.nextLine());
+                    dest?.println(sc.nextLine())
                 }
             }).start()
         }
