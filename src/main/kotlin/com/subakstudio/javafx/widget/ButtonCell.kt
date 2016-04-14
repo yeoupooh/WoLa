@@ -18,7 +18,7 @@ class ButtonCell(column: TableColumn<WolRow, String>) : TableCell<WolRow, String
     init {
         println("ButtonCell: init: column=$column tableRow=$tableRow")
         cellButton.onAction = EventHandler<ActionEvent> { event ->
-            println("ButtonCell: onAction: tableRow=${tableRow.index} ${cell()?.name} $event")
+            println("ButtonCell: onAction: tableRow=${tableRow.index} ${cell()?.name} ${cell()?.options} $event")
         }
     }
 

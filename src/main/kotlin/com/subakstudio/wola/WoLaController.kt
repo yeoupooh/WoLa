@@ -1,6 +1,9 @@
 package com.subakstudio.wola
 
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.subakstudio.javafx.widget.FilteredTableController
+import com.subakstudio.wola.config.WoLaConfig
 import com.subakstudio.wola.model.WolRow
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -8,6 +11,7 @@ import javafx.fxml.Initializable
 import javafx.scene.Parent
 import javafx.scene.control.MenuItem
 import javafx.scene.control.TableView
+import java.io.File
 import java.net.URL
 import java.util.*
 import kotlin.system.exitProcess
@@ -46,7 +50,18 @@ class WoLaController : Initializable {
         //println("WoLaController: " + (filteredTablePane is FilteredTableController)
         println("WoLaController: child ctrl=$filteredTablePaneController")
 
-        filteredTablePaneController?.addRow(WolRow("name", "type", "options", "action"))
-        filteredTablePaneController?.addRow(WolRow("name2", "type2", "options2", "action2"))
+        loadConfig()
+    }
+
+    private fun loadConfig() {
+        var om: ObjectMapper = ObjectMapper()
+        om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        var config = om.readValue(File(this.javaClass.getResource("/wola.config.json").file), WoLaConfig::class.java)
+        filteredTablePaneController?.let {
+            for (host in config.hosts) {
+                (filteredTablePaneController as FilteredTableController)
+                        .addRow(WolRow(host.name, host.type, host.options, "action"))
+            }
+        }
     }
 }
