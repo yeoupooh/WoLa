@@ -5,4 +5,6 @@
 
 
 # WoLa
+
+[![Join the chat at https://gitter.im/yeoupooh/WoLa](https://badges.gitter.im/yeoupooh/WoLa.svg)](https://gitter.im/yeoupooh/WoLa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Wake-On-Lan Application allows you to send WOL packet directly or indirectly via wireless AP such as ASUS routers, ipTime routers etc.
