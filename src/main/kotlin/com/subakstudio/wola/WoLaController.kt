@@ -11,6 +11,7 @@ import javafx.fxml.Initializable
 import javafx.scene.Parent
 import javafx.scene.control.MenuItem
 import javafx.scene.control.TableView
+import javafx.util.Callback
 import java.io.File
 import java.net.URL
 import java.util.*
@@ -39,7 +40,6 @@ class WoLaController : Initializable {
         }
     }
 
-    //@FXML
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         assert(filteredTablePane != null) { "fx:id=\"filteredTablePane\" was not injected: check your FXML file 'WoLa.fxml'." }
 
@@ -62,11 +62,7 @@ class WoLaController : Initializable {
         var om: ObjectMapper = ObjectMapper()
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         var config = om.readValue(File(resConfig.file), WoLaConfig::class.java)
-        filteredTablePaneController?.let {
-            for (host in config.hosts) {
-                (filteredTablePaneController as FilteredTableController)
-                        .addRow(WolRow(host.name, host.type, host.options, "action"))
-            }
-        }
+
+        filteredTablePaneController?.setHosts(config.hosts)
     }
 }

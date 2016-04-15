@@ -1,5 +1,6 @@
 package com.subakstudio.javafx.widget
 
+import com.subakstudio.wola.config.WolHost
 import com.subakstudio.wola.model.WolRow
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
@@ -16,6 +17,8 @@ import java.util.*
  * Created by yeoupooh on 4/12/16.
  */
 class FilteredTableController : Initializable {
+    val observable: rx.Observable<String> = rx.Observable.from(arrayOf("a", "b", "c"))
+
     @FXML // ResourceBundle that was given to the FXMLLoader
     private var resources: ResourceBundle? = null
 
@@ -55,7 +58,6 @@ class FilteredTableController : Initializable {
         colType?.cellValueFactory = PropertyValueFactory<WolRow, String>("type")
         colOptions?.cellValueFactory = PropertyValueFactory<WolRow, String>("options")
         colAction?.cellFactory = Callback <TableColumn<WolRow, String>, TableCell<WolRow, String>>() { column -> ButtonCell(column) }
-
     }
 
     fun setItems(rows: ObservableList<WolRow>) {
@@ -66,7 +68,13 @@ class FilteredTableController : Initializable {
         table?.items?.add(row)
     }
 
-
+    fun setHosts(hosts: List<WolHost>) {
+        table?.let {
+            for (host in hosts) {
+                table?.items?.add(WolRow(host.name, host.type, host.options))
+            }
+        }
+    }
 }
 
 

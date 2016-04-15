@@ -11,7 +11,7 @@ import javafx.scene.control.TableColumn
  * Created by yeoupooh on 4/13/16.
  */
 class ButtonCell(column: TableColumn<WolRow, String>) : TableCell<WolRow, String>() {
-    var cellButton: Button = Button("Action")
+    var cellButton: Button = Button("Wake Up")
     // Anonymous function to get cell
     var cell: () -> WolRow? = { tableView.items[tableRow.index] }
 
@@ -25,8 +25,6 @@ class ButtonCell(column: TableColumn<WolRow, String>) : TableCell<WolRow, String
     override fun updateItem(item: String?, empty: Boolean) {
         super.updateItem(item, empty);
         if (!empty) {
-            println("ButtonCell: updateItem: ${cell()?.action} item=$item empty=$empty")
-            cellButton.text = cell()?.action
             graphic = cellButton;
         }
     }
