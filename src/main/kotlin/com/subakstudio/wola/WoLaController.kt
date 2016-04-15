@@ -54,9 +54,14 @@ class WoLaController : Initializable {
     }
 
     private fun loadConfig() {
+        var resConfig: URL? = this.javaClass.getResource("/wola.config.json")
+        if (resConfig == null) {
+            System.err?.println("Failed to load config file")
+            return
+        }
         var om: ObjectMapper = ObjectMapper()
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        var config = om.readValue(File(this.javaClass.getResource("/wola.config.json").file), WoLaConfig::class.java)
+        var config = om.readValue(File(resConfig.file), WoLaConfig::class.java)
         filteredTablePaneController?.let {
             for (host in config.hosts) {
                 (filteredTablePaneController as FilteredTableController)
