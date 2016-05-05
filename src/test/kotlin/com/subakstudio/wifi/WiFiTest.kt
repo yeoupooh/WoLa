@@ -1,14 +1,11 @@
 package com.subakstudio.wifi
 
 import com.subakstudio.util.RedirectIO
-import com.subakstudio.wifi.WifiMacOSX
-import org.junit.Assert.*
+import org.junit.Assert.assertNotNull
 import org.junit.Ignore
 import org.junit.Test
 import java.io.BufferedReader
-import java.io.InputStream
 import java.io.InputStreamReader
-import java.io.PrintStream
 import java.util.*
 
 /**
