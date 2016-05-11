@@ -72,6 +72,13 @@ class RxJavaInKotlinTest {
                 println("onError: $e")
             }
         })
+        var o3 = Observable.create<String>({ subscriber ->
+            subscriber.onNext("3rd")
+        })
+
+        o3.subscribe({ s ->
+            println("o3: $s")
+        })
     }
 
 }
