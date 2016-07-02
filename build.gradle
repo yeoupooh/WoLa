@@ -4,9 +4,13 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1-2"
+        classpath "gradle.plugin.edu.sc.seis:macAppBundle:2.1.5"
     }
 }
 
@@ -14,16 +18,26 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'application'
-
-sourceCompatibility = 1.5
-mainClassName = 'com.subakstudio.wola.WoLa'
+apply plugin: 'edu.sc.seis.macAppBundle'
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    mainClass = 'com.subakstudio.wola.wolgui'
+    //mainClass = 'com.subakstudio.wola.WoLa'
+}
+
+sourceCompatibility = 1.5
+mainClassName = "$mainClass"
+
 project.ext {
     jacksonVersion = '2.7.3'
+}
+
+macAppBundle {
+    mainClassName = "$mainClass"
 }
 
 dependencies {
@@ -44,6 +58,9 @@ dependencies {
 
     // OkHttp
     compile 'com.squareup.okhttp:okhttp:2.7.5'
+
+    // Groovy Http Builder
+    compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
