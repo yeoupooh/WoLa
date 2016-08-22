@@ -21,15 +21,16 @@ apply plugin: 'application'
 apply plugin: 'edu.sc.seis.macAppBundle'
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 ext {
     mainClass = 'com.subakstudio.wola.wolgui'
-    //mainClass = 'com.subakstudio.wola.WoLa'
+//    mainClass = 'com.subakstudio.wola.WoLa'
 }
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.6
 mainClassName = "$mainClass"
 
 project.ext {
@@ -58,6 +59,9 @@ dependencies {
 
     // OkHttp
     compile 'com.squareup.okhttp:okhttp:2.7.5'
+
+    // Fuel Http Client
+    compile 'com.github.kittinunf.fuel:fuel:1.3.1'
 
     // Groovy Http Builder
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'

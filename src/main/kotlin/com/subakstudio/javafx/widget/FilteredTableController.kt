@@ -17,7 +17,7 @@ import java.util.*
  * Created by yeoupooh on 4/12/16.
  */
 class FilteredTableController : Initializable {
-    val observable: rx.Observable<String> = rx.Observable.from(arrayOf("a", "b", "c"))
+//    val observable: rx.Observable<String> = rx.Observable.from(arrayOf("a", "b", "c"))
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private var resources: ResourceBundle? = null

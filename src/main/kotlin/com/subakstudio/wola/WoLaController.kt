@@ -9,6 +9,7 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.Parent
+import javafx.scene.control.Button
 import javafx.scene.control.MenuItem
 import javafx.scene.control.TableView
 import javafx.util.Callback
@@ -31,12 +32,15 @@ class WoLaController : Initializable {
         if (event.source is MenuItem) {
             val id = (event.source as MenuItem).id
             println("WoLaController: id=$id")
-            when (id ) {
+            when (id) {
                 "menuItemQuit" -> exitProcess(0)
                 "menuItemAbout" -> {
                     //show dialog}
                 }
             }
+        } else if (event.source.equals("button")) {
+//            event.source as Button
+
         }
     }
 
@@ -56,7 +60,7 @@ class WoLaController : Initializable {
     private fun loadConfig() {
         var resConfig: URL? = this.javaClass.getResource("/wola.config.json")
         if (resConfig == null) {
-            System.err?.println("Failed to load config file")
+            System.err?.println("Failed to load config file.")
             return
         }
         var om: ObjectMapper = ObjectMapper()
